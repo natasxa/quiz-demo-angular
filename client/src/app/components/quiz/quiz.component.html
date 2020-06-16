@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="title">Quize: {{quiz.quiz_name}}</div>
+    <app-start *ngIf="!user" [quiz]="quiz"></app-start>
+
+    <div *ngIf="user && !result" class="quiz">
+        <div class="question">
+            {{activeQuestion.question}}
+        </div>
+        <div class="options">
+            <ul>
+                <li id="1" (click)="handleAnswer($event.target.id)">A. {{activeQuestion.opt1}}</li>
+                <li id="2" (click)="handleAnswer($event.target.id)">B. {{activeQuestion.opt2}}</li>
+                <li id="3" (click)="handleAnswer($event.target.id)">C. {{activeQuestion.opt3}}</li>
+                <li id="4" (click)="handleAnswer($event.target.id)">D. {{activeQuestion.opt4}}</li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="next">
+                <button *ngIf="!finish" type="button" [disabled]="!answer" (click)="handleNext()">Next</button>
+                <button *ngIf="finish" type="button" [disabled]="!answer" (click)="handleFinish()">Finish</button>
+            </div>
+            <div class="progress">
+                PROGRESS: <span>{{counter + 1}} / {{questions.length}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="result" *ngIf="result">
+        Your result: {{quantityOfRightAnswers.length}} of {{questions.length}}
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="teacher">
+        <div class="welcommsg">
+            <h3>Hello, teacher!</h3>
+        </div>
+        <div class="body">
+            <div class="quizzes">
+                <button type="button" (click)="handleClick()">New quiz</button>
+                <div>
+                    <!--  <p>All quizes:</p> -->
+                    <div class="search">
+                        <input type="text" #findQuiz (input)="ontype(findQuiz.value, 'findQuiz')" placeholder="Find quiz...">
+                    </div>
+                    <ul class="wrapper">
+                        <li *ngFor="let q of quizzes">
+                            <span (click)="handleCopy(q.link)" title="click to copy link">{{q.quiz_name}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="results">
+                <div class="last-results">
+                    Last results:
+                </div>
+                <div class="search">
+                    <input #searchByUser (input)="ontype(searchByUser.value, 'searchByUser')" type="text" placeholder="Search by user name...">
+                    <input #searchByQuiz (input)="ontype(searchByQuiz.value, 'searchByQuiz')" type="text" placeholder="Search by quiz name...">
+                </div>
+                <ul class="wrapper">
+                    <li *ngFor="let r of results" title="click for more details" (click)="handleShowDetails(r.id_result)">
+                        <span>quiz: {{r.quiz_name}}</span><br>
+                        <span>user: {{r.user}}</span> <br>
+                        <span>result: {{((r.quantity_a / r.quantity_q)*100).toFixed(2)}}%</span><br>
+                        <span class="date">{{r.date | date:'short'}}</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

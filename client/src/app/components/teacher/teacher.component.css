@@ -1,0 +1,118 @@
+/* .container {
+    background-color: mediumpurple;
+    height: 100%;
+    width: 100%;
+    padding: 10vh 10vw;
+}
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+} */
+.teacher {
+    background-color: white;
+    border-radius: 10px;
+    width: 60vw;
+    min-width: 300px;
+    min-height: 400px;
+    margin: 0vh auto;
+    padding: 30px;    
+}
+.welcommsg {
+    border-bottom: 2px solid mediumorchid;
+}
+h3 {
+    margin: 0;
+    color: midnightblue;
+}
+.body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quizzes {
+    width: 30vw;
+    margin-right: 30px;
+}
+.quizzes p {
+    margin-bottom: 2px;
+}
+.quizzes span {
+    cursor: pointer;
+}
+.quizzes button {
+    color: white;
+    background-color: mediumorchid; 
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;   
+    cursor: pointer;
+    outline: none;
+    margin: 20px 0;
+}
+.quizzes button:hover {
+    color: mediumorchid;
+    background-color: white;
+}
+.results {
+    width: 30vw;
+}
+.search {
+    display: inline-block;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+}
+.search input {
+    border: none;
+    border-bottom: 2px solid mediumpurple;
+    outline: none;
+    margin-bottom: 5px;
+}
+p {
+    color: mediumpurple;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.last-results {
+    color: white;
+    background-color: mediumpurple; 
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;   
+    outline: none;
+    margin: 20px 0;
+}
+.results li {
+    cursor: pointer;
+}
+.results .date {
+    font-size: 10px;
+}
+.quizzes .wrapper {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.results .wrapper {
+    max-height: 177px;
+    overflow-y: scroll;
+}
+.results span, .quizzes span {
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+    [class*="body"] {
+        flex-wrap: wrap;
+    }  
+    [class*="search"] {      
+        flex-wrap: wrap;
+    }
+    [class*="quizzes"] {      
+        width: 100%; 
+    }
+    [class*="results"] {      
+        width: 100%; 
+    }
+
+  }

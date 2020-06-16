@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="quiz-name">
+        <div class="top">
+            <div>New quiz name:</div>
+        </div>
+        <input id="quiz_name" [(ngModel)]="name" type="text">
+    </div>
+    <div class="center">
+        <form [formGroup]="form">
+            <div style="border-bottom: 2px solid mediumorchid;" class="form-group">
+                <p style="color: mediumorchid;">Question:</p>
+                <input type="text" formControlName="question">
+            </div>
+            <div class="form-group">
+                <p>Option 1:</p>
+                <input type="text" formControlName="option1">
+            </div>
+            <div class="form-group">
+                <p>Option 2:</p>
+                <input type="text" formControlName="option2">
+            </div>
+            <div class="form-group">
+                <p>Option 3:</p>
+                <input type="text" formControlName="option3">
+            </div>
+            <div class="form-group">
+                <p>Option 4:</p>
+                <input type="text" formControlName="option4">
+            </div>
+            <div class="errors" *ngIf="show_errors">
+                <p *ngIf="name == null">quiz's name is required</p>
+                <p *ngIf="!isUniqueName">this quiz's name is already used</p>
+                <p *ngIf="form.controls.question.errors?.required">question is required</p>
+                <p
+                    *ngIf="form.controls.option1.errors?.required || form.controls.option2.errors?.required || form.controls.option3.errors?.required || form.controls.option4.errors?.required">
+                    all options are required</p>
+                <p *ngIf="correct_answer == null">mark correct answer</p>
+            </div>
+           
+        </form>
+        <div class="check-group">
+            <p>Correct answer:</p>           
+            <input class="check" type="radio" [(ngModel)]="correct_answer" name="correct_answer" value="1"
+                (change)="handleSelect($event.target.value)" /><label>1</label>
+            <input class="check" type="radio" [(ngModel)]="correct_answer" name="correct_answer" value="2"
+                (change)="handleSelect($event.target.value)" /><label>2</label>
+            <input class="check" type="radio" [(ngModel)]="correct_answer" name="correct_answer" value="3"
+                (change)="handleSelect($event.target.value)" /><label>3</label>
+            <input class="check" type="radio" [(ngModel)]="correct_answer" name="correct_answer" value="4"
+                (change)="handleSelect($event.target.value)" /><label>4</label>
+        </div>
+        <div class="buttons">
+            <button class="previos" type="button">&#60;</button>
+            <button class="cancel" type="button" (click)="handleCancel()">Cancel</button>
+            <button class="add" type="submit" (click)="handleAdd()">Save</button>
+            <button class="finish" type="button" (click)="handleFinish()">Finish</button>
+            <button class="next" type="button">&#62;</button>
+        </div>
+        <div class="bottom">Questions: {{counter}}</div>
+    </div>
+</div>

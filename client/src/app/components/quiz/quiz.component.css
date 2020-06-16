@@ -1,0 +1,143 @@
+/* .container {
+    background-color: mediumpurple;
+    height: 100%;
+    width: 100%;
+    padding: 10vh 10vw;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+} */
+
+.quiz {
+    height: 65vh;
+    width: 50vw;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+.title {
+    width: 30vw;
+   /*  padding: 4vh 5vw; */
+    color: white;
+    border-bottom: 2px solid white;
+    font-size: 20px;
+    margin: 5vh auto;
+}
+.quiz .question {
+    padding: 15px;
+    background-color: mediumorchid;
+    border-radius: 10px;
+    color:white;
+    font-size: 20px;
+    float: left;
+    width: 100%;
+}
+
+.quiz .options {
+    float: left;
+}
+
+.quiz .options ul {
+    list-style: none;  
+    padding: 0px; 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50vw;
+}
+
+.quiz .options ul li{
+    display: inline-block;
+    background-color: rgb(235, 231, 231);
+    width: 20vw;
+    padding: 2vw;
+    border-radius: 10px;
+    margin: 2vh 2vw;
+    outline: none;
+}
+
+.quiz .options ul li:active{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.quiz .bottom {
+    width: 50vw;
+    padding: 0 2vw;
+}
+
+.quiz .bottom .next {
+    width:  15vw;
+    margin: auto;
+}
+
+.quiz .bottom .next button {
+    padding: 3vh 5vw;
+    color: white;
+    background-color: slateblue;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.quiz .bottom .next button:active {
+    background-color: rgb(84, 65, 212);
+}
+
+.quiz .bottom .progress {
+    width:  25vw;
+    line-height: 50px;
+    margin: auto;
+    text-align: center;
+}
+.result {
+    text-align: center;
+    color: mediumpurple;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3vh 5vw;
+}
+
+/* .quiz .bottom {
+    width: 50vw;
+    float: left;
+    padding: 0 2vw;
+}
+
+.quiz .bottom .next {
+    width:  15vw;
+    float: left;
+}
+
+.quiz .bottom .next button {
+    padding: 4vh 5vw;
+    color: white;
+    background-color: slateblue;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.quiz .bottom .next button:active {
+    background-color: rgb(84, 65, 212);
+}
+
+.quiz .bottom .progress {
+    width:  25vw;
+    float: left;
+    line-height: 50px;
+    padding: 1vh;
+} */
+
+/* .quiz .bottom .progress span{
+   background-color: mediumpurple;
+   padding: 2vh 4vw;
+   border-radius: 10px;
+   color: white;
+} */

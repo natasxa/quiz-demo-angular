@@ -1,0 +1,25 @@
+<div class="container">
+    <div *ngIf="isReady">
+        <div class="title">
+            <span>
+                Quize: {{result[0].quiz_name}}<br>
+                User: {{result[0].user}}<br>
+                Result: {{result[0].quantity_a}}/{{result[0].quantity_q}}
+                ({{((result[0].quantity_a / result[0].quantity_q)*100).toFixed(2)}}%)
+            </span>
+        </div>
+        <div class="details">
+            <div [style.background-color]="r.isCorrect ? 'mediumseagreen': 'mediumorchid'" [title]="r.isCorrect ? 'correct': 'incorrect'" class="question" *ngFor="let r of result; let i = index"> 
+                  <span id={{i}} (click)="showComment(id)">{{i + 1}}</span>             
+            </div>
+        </div>
+        <div class="comment" *ngIf="isComment">
+            <span>
+                Question: {{result[question_id].question}}<br> 
+                Choosed answer: {{result[question_id].choosed}}<br>
+                Correct answer: {{result[question_id].correct}}
+            </span>
+        </div>
+        <button type="button" (click)="handleBack()">Back</button>
+    </div>
+</div>
