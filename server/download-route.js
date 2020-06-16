@@ -19,27 +19,19 @@ db.connect((err) => {
     console.log("download-route connected to mysql")
 })
 
-router.post('/', async (req, res) => {
-    console.log('somebody tries to save a bill to server')
+router.post('/', async (req, res) => {   
     //prepearing to rename file:
-    let b = await Query(`SELECT * FROM orders`)
+    let b = await Query(`SELECT * FROM results`)
     console.log(b.length, 'LENGTH')
-    let filename = 'bill_' + b.length + '.txt'
+    let filename = 'result_' + b.length + '.txt'
     //prepearing content:
     console.log(req.body, 'BODY')
     let items = req.body
-    console.log(items.length, 'LENGTH OF ORDER')
-    let data = [
-        ["********************THE BILL********************"]
-    ]
-    let total = 0
-    for (item of items) {
-        total += item.price_all
-        data.push([item.name + ', ' + item.quantity + ' x ' + item.price_unit + " ₪" + ' = ' + item.price_all + " ₪"])
-    }
-    data.push(["Total: " + total + " ₪"])
+    console.log(items.length, 'LENGTH OF RESULTS')
+    let data = []   
+    data.push(["Result: " + "smth from req.body"])
     let output = table(data);
-    //save bill to folder:
+    //save result to folder:
     fs.writeFile(__dirname + "/results/" + filename, output, function (err) {
         if (err) throw err;
         console.log('Saved!');
@@ -48,8 +40,7 @@ router.post('/', async (req, res) => {
     res.end();
 })
 
-router.get('/:name', (req, res) => {
-    console.log('somebody tries to download a bill')
+router.get('/:name', (req, res) => {   
     filePath = path.join(__dirname + "/results/" + req.params.name)
     console.log(filePath)
     res.sendFile(filePath)
